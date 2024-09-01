@@ -1,1 +1,0 @@
-print("hello world, u finally connected to the server")

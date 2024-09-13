@@ -1,0 +1,51 @@
+Non-iterative functions:
+
+np.add.reduce
+np.all
+np.any
+np.append
+np.arange
+np.argmax
+np.compress
+np.concatenate
+np.cumsum
+np.diff
+np.divide
+np.einsum
+np.empty
+np.equal
+np.full
+np.greater
+np.greater_equal
+np.hstack
+np.insert
+np.lib.stride_tricks
+np.logical_and
+np.logical_not
+np.matmul
+np.ndarray.fill
+np.ndarray.flatten
+np.ndarray.reshape
+np.newaxis
+np.ones
+np.pad
+np.repeat
+np.reshape
+np.shape
+np.squeeze
+np.take
+np.transpose
+np.ufunc.reduce
+np.vander
+np.where
+np.zeros
+np.zeros_like
+
+...plus all functions mentioned in PS0 NumPy Basics
+- import copy -> copy.deepcopy()
+
+Iterative functions:
+
+np.apply_along_axis
+np.apply_over_axes
+np.vectorize

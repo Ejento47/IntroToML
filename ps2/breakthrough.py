@@ -64,16 +64,17 @@ def is_valid_move(
 
     if board[sr][sc] != player_piece:
         return False
-    if not (0 <= dr < ROW and 0 <= dc < COL):
+    if not (0 <= dr < ROW and 0 <= dc < COL): #checks if move is out of bounds
         return False
-    if dr != sr + direction:
+    if dr != sr + direction: #checks if move is correct direction and only forward
         return False
-    if abs(dc - sc) > 1:
+    if abs(dc - sc) > 1: #checks if move is  left or right since cannot move left and right but forward and forward diagonally
         return False
-    if dc == sc and board[dr][dc] != "_":
+    if dc == sc and board[dr][dc] != "_": #if move forward and destination is not empty
         return False
-    if dc != sc and board[dr][dc] == player_piece:
+    if dc != sc and board[dr][dc] == player_piece: #uf move diagonal and destination is own piece
         return False
+
 
     return True
 

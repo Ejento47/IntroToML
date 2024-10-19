@@ -41,6 +41,13 @@ np.where
 np.zeros
 np.zeros_like
 
+#after PS3 
+- np.linalg.norm
+- np.abs
+- np.square
+- np.power
+- np.hstack
+
 ...plus all functions mentioned in PS0 NumPy Basics
 - import copy -> copy.deepcopy()
 

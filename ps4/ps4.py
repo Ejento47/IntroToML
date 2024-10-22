@@ -136,6 +136,7 @@ for t in range(1, 5001):
         c.grad.zero_() # reset gradients !important
         d.grad.zero_() # reset gradients !important
         # What happens if you don't reset the gradients?
+        # 
 
 # print fitted polynomial
 equation = f'{a:.5f} + {b:.5f} x + {c:.5f} x^2 + {d:.5f} x^3'

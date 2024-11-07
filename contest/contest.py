@@ -64,7 +64,8 @@ class AIAgent(object):
         player_id : int
             The ID of the player assigned to this agent (1 or 2).
         """
-        pass
+        self.player_id = player_id
+    
     def make_move(self, state):
         """
         Determines and returns the next move for the agent based on the current game state.
@@ -84,7 +85,44 @@ class AIAgent(object):
             The valid action, ie. a valid column index (col_id) where this agent chooses to drop its piece.
         """
         """ YOUR CODE HERE """
-        raise NotImplementedError
+        valid_col_ids = get_valid_col_id(state)
+        #do minimax with alpha beta pruning
+
+        def minimax(state, depth, alpha, beta, maximizingPlayer, player_id):
+            valid_col_ids = get_valid_col_id(state)
+            if depth == 0 or len(valid_col_ids) == 0:
+                return None, 0
+            if maximizingPlayer:
+                value = -100
+                best_col = valid_col_ids[0]
+                for col in valid_col_ids:
+                    new_state = state.copy()
+                    step(new_state, col, player_id, in_place=False)
+                    _, score = minimax(new_state, depth-1, alpha, beta, False, player_id)
+                    if score > value:
+                        value = score
+                        best_col = col
+                    alpha = max(alpha, value)
+                    if alpha >= beta:
+                        break
+                return best_col, value
+            else:
+                value = 100
+                best_col = valid_col_ids[0]
+                for col in valid_col_ids:
+                    new_state = state.copy()
+                    step(new_state, col, 3-player_id, in_place=False)
+                    _, score = minimax(new_state, depth-1, alpha, beta, True, player_id)
+                    if score < value:
+                        value = score
+                        best_col = col
+                    beta = min(beta, value)
+                    if alpha >= beta:
+                        break
+                return best_col, value
+        best_col, _ = minimax(state, 4, -100, 100, True, self.player_id)                
+        return best_col
+    
         """ YOUR CODE END HERE """
 
 def test_task_1_1():

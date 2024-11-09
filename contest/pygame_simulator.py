@@ -1,6 +1,7 @@
 import pygame
 import math
-from simulator import GameController, HumanAgent
+from simulator import AIAgent1, GameController, HumanAgent, AIAgent2, AIAgent3
+from AIAgent import AIAgent
 
 BLACK = (0,0,0)
 GREY =  (200,200,200)
@@ -96,6 +97,6 @@ class HumanPygameAgent(HumanAgent):
 if __name__ == "__main__":
     from connect_four import ConnectFour
     board = ConnectFour()
-    game = GameControllerPygame(board=board, agents=[HumanPygameAgent(1), HumanPygameAgent(2)])
+    game = GameControllerPygame(board=board, agents=[HumanPygameAgent(1), AIAgent(2)])
     winner_id = game.run()
     print(f"Winner: {winner_id}")
